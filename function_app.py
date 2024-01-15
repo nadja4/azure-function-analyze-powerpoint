@@ -130,7 +130,7 @@ app = func.FunctionApp()
 @app.queue_trigger(
     arg_name=secret_client.get_secret("StorageQueueTriggerArgName").value,
     queue_name = secret_client.get_secret("StorageQueueName").value,
-    connection=secret_client.get_secret("StorageQueueTriggerConnectionString").value
+    connection="QueueConnectionString",
 )
 
 def func_analyze_powerpoint_trigger(azqueue: func.QueueMessage):
